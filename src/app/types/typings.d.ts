@@ -11,4 +11,5 @@ declare module "*.svg" {
     const SVG: React.VFC<React.SVGProps<SVGSVGElement>>
     export default SVG
 }
+// eslint-disable-next-line no-unused-vars
 declare const __IS_DEV__: boolean

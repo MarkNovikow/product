@@ -7,6 +7,7 @@ export enum Theme {
 
 export interface ThemeContextProps {
     theme?: Theme,
+    // eslint-disable-next-line no-unused-vars
     setTheme?: (theme: Theme) => void
 }
 
