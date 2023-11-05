@@ -10,5 +10,5 @@ export function classNames(cls: string, mods: Mods = {}, additional: string[] = 
             })
             .map(([classNames]) => classNames)
     ]
-        .join(' ');
+        .join(' ').trim();
 }
