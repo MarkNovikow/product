@@ -3,6 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from "path";
 export default {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -20,10 +21,8 @@ export default {
     ],
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: [
-        "node_modules"
+        "node_modules",
     ],
-
-    // An array of file extensions your modules use
     moduleFileExtensions: [
         "js",
         "jsx",
@@ -32,11 +31,22 @@ export default {
         "json",
         "node"
     ],
+    // An array of file extensions your modules use
+    moduleNameMapper: {
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+            path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '\\.(s?css|less)$': 'identity-obj-proxy',
+    },
+    modulePaths: [
+        '<rootDir>src'
+    ],
     testMatch: [
         "**/__tests__/**/*.[jt]s?(x)",
         "**/?(*.)+(spec|test).[tj]s?(x)"
     ],
     rootDir: '../../',
+    coverageProvider: "v8",
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -50,7 +60,6 @@ export default {
 
 
     // Indicates which provider should be used to instrument code for coverage
-    coverageProvider: "v8",
 
     // A list of reporter names that Jest uses when writing coverage reports
     // coverageReporters: [
@@ -142,7 +151,7 @@ export default {
     // snapshotSerializers: [],
 
     // The test environment that will be used for testing
-    // testEnvironment: "jest-environment-node",
+    testEnvironment: "jsdom",
 
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},

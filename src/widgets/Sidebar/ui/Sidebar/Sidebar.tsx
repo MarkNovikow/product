@@ -15,8 +15,12 @@ const Sidebar: FC<SidebarProps> = ({className}) => {
     const [collapsed, setCollapsed] = useState(false)
     const onToggle = () => setCollapsed(prevState => !prevState)
     return (
-        <div className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
-            <Button onClick={onToggle}>{!collapsed ? t('Свернуть') : t('Развернуть')}
+        <div
+            data-testid={'test'}
+            className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
+            <Button
+                data-testid={"sidebar-toggle"}
+                onClick={onToggle}>{!collapsed ? t('Свернуть') : t('Развернуть')}
             </Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
@@ -27,4 +31,4 @@ const Sidebar: FC<SidebarProps> = ({className}) => {
     );
 };
 
-export {Sidebar};
+export {Sidebar}
