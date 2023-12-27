@@ -1,5 +1,6 @@
 .Navbar {
-  width: 100%;
+  position: absolute;
+  right: 0;
   height: var(--navbar-height);
   background: var(--inverted-bg-color);
   display: flex;;
@@ -8,7 +9,6 @@
   padding: 20px;
 }
 
-.links {
-  display: flex;
-  gap: 15px;
+.auth button {
+  color: var(--text)
 }

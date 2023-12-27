@@ -2,12 +2,14 @@
 @import 'variables/global';
 @import 'themes/dark';
 @import 'themes/normal';
-
-.app {
+@import 'themes/semi';
+body {
   font: var(--font-m);
-  background: var(--bg-color);
-  color: var(--primary-color);
+}
+.app {
   min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .content-page {

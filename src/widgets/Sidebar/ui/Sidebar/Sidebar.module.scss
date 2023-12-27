@@ -1,15 +1,36 @@
 .Sidebar {
   height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
-  background: var(--inverted-bg-color);
+  background: var(--light-bg);
   position: relative;
   transition: width 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-top: 32px;
+  padding-top: 32px;
+  padding-bottom: 41px;
+  border-radius: 32px ;
 }
+.pagesLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 
+}
+.pagesLinks a {
+  text-decoration: none;
+}
+.linkItem {
+  display: flex;
+  gap: 16px;
+}
+.sidebarToggle {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+}
 .collapsed {
   width: var(--sidebar-width-collapsed);
 }
@@ -28,3 +49,10 @@
 .collapsed .switchers {
   gap: 10px;
 }
+
+.icons {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+}
+
