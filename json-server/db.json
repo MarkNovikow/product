@@ -7,5 +7,12 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "users": [
+    {
+      "id": "1",
+      "username": "marknoviko@mail.ru",
+      "password": "123456"
+    }
+  ]
 }

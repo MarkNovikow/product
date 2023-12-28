@@ -3,5 +3,12 @@
   "RU": "EN",
   "Свернуть": "Collapse",
   "Развернуть": "Expand",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Имя пользователя": "Username",
+  "Пароль": "Password",
+  "Войти": "Login",
+  "Обязательное поле": "Required field",
+  "Неверный адрес": "Invalid address",
+  "Пароль должен быть длиннее 6 символов!": "Password should be longer than 6 characters!",
+  "User not found": "User not found"
 }

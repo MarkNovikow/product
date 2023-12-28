@@ -26,22 +26,25 @@ const Sidebar: FC<SidebarProps> = ({className}) => {
             data-testid={'test'}
             className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}>
             <div className={cls.pagesLinks}>
-                <div className={cls.linkItem}>
-                    <HomePage/>
+                <div>
                     <AppLink
+                        className={cls.linkItem}
                         to={'/'}>
-                        {main('Главная')}
+                        <HomePage/>
+                        {!collapsed && main('Главная')}
                     </AppLink>
                 </div>
-                <div className={cls.linkItem}>
-                    <AboutPage/>
+                <div>
+
                     <AppLink
+                        className={cls.linkItem}
                         to={'/about'}>
-                        {about('О сайте')}
+                        <AboutPage/>
+                        {!collapsed && about('О сайте')}
                     </AppLink>
                 </div>
             </div>
-            <div className={cls.icons}>
+            <div className={cls.icons} >
 
                 <ThemeSwitcher/>
                 <LangSwitcher/>

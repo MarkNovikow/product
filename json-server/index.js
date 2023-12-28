@@ -12,7 +12,7 @@ server.use(jsonServer.bodyParser);
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
   await new Promise((res) => {
-    setTimeout(res, 800);
+    setTimeout(res, 400);
   });
   next();
 });
@@ -40,7 +40,6 @@ server.post('/login', (req, res) => {
 });
 
 // проверяем, авторизован ли пользователь
-// eslint-disable-next-line
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(403).json({ message: 'AUTH ERROR' });

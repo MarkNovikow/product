@@ -10,8 +10,9 @@
   align-items: center;
   margin-top: 32px;
   padding-top: 32px;
-  padding-bottom: 41px;
+  padding-bottom: 40px;
   border-radius: 32px ;
+  margin-left: 32px;
 }
 .pagesLinks {
   display: flex;
@@ -29,11 +30,9 @@
 .sidebarToggle {
   position: absolute;
   right: 0;
-  bottom: 50%;
+  bottom: calc(50% - 9px);
 }
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-}
+
 
 
 .switchers {
@@ -46,13 +45,25 @@
   justify-content: center;
 }
 
-.collapsed .switchers {
-  gap: 10px;
-}
+
 
 .icons {
   display: flex;
   gap: 22px;
   justify-content: center;
 }
-
+.Sidebar.collapsed {
+  width: 50px;
+  padding: 32px 9px 16px 9px;
+  margin-left: 12px;
+}
+.collapsed .icons {
+  flex-direction: column;
+  gap: 16px;
+}
+.collapsed .sidebarToggle {
+  right: calc(50% - 9px);
+}
+.collapsed .switchers {
+  gap: 10px;
+}

@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
+import React, {FC, lazy, useCallback, useEffect, useRef, useState} from 'react';
 import {classNames} from 'shared/lib/classNames/classNames';
 
 import cls from './Modal.module.scss';
@@ -11,13 +11,20 @@ interface ModalProps {
     className?: string;
     children?: React.ReactNode;
     isOpen?: boolean;
-    onClose?: () => void
+    onClose?: () => void;
+    lazy?: boolean
 }
 
-const Modal: FC<ModalProps> = ({className, children, onClose, isOpen}) => {
+const Modal: FC<ModalProps> = ({className, children, onClose, isOpen, lazy}) => {
     const {theme} = useTheme()
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timeRef = useRef(null);
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen]);
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation()
     }
@@ -44,6 +51,9 @@ const Modal: FC<ModalProps> = ({className, children, onClose, isOpen}) => {
             window.onkeydown = null;
         }
     }, [isOpen]);
+    if (lazy && !isMounted) {
+        return null
+    }
     return (
         <Portal>
             <div
@@ -58,11 +68,6 @@ const Modal: FC<ModalProps> = ({className, children, onClose, isOpen}) => {
                     <div onClick={onContentClick}
                          className={classNames(cls.content)}>
                         {children}
-                        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium assumenda commodi
-                            dicta
-                            distinctio dolore et ex expedita fugit ipsum odio, quae quia, repellat tempora voluptas
-                            voluptatum! Fuga minus numquam sed!
-                        </div>
                     </div>
                 </div>
 
